@@ -35,7 +35,8 @@ class Amigos(models.Model):
 
 class Imagem(models.Model):
     nome = models.CharField(max_length=255)
-    imagem = models.FileField(upload_to=directory_path, blank=True)
+    video = models.FileField(upload_to=directory_path, blank=True, null=True)
+    imagem = models.FileField(upload_to=directory_path, null=True)
 
     def __str__ (self):
         return self.nome
