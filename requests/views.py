@@ -3,7 +3,7 @@ from rest_framework import viewsets, renderers, permissions
 from django.shortcuts import redirect
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import Mensagens, Users
+from .models import Mensagens, Users, Imagem
 from .serializers import *
 from PIL import Image
 import os
@@ -56,6 +56,10 @@ class CriarAmizade(viewsets.ModelViewSet):
             return Response({'status' : True, 'msg' : 'Amizade criada!'})
         else:
             return Response({'status' : False, 'msg' : 'Amizade já existe!'})
+
+class SalvarImagem(viewsets.ModelViewSet):
+    queryset = Imagem.objects.all()
+    serializer_class = GenericClassImageSerializer
 
 @csrf_exempt
 def uploadImage(request):

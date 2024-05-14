@@ -6,7 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter(trailing_slash=False)
-# router.register(r'mensagens', MensagemViewSet, basename='mensagem')
+router.register(r'imagem', SalvarImagem, basename='imagem')
 # router.register(r'mensagem', MensagemViewSetOnlyRead, basename='mensagem/pk')
 # router.register(r'users', UserViewSet, basename='user')
 # router.register(r'user', UserViewSetOnlyRead, basename='user/pk')

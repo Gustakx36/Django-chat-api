@@ -1,4 +1,4 @@
-from .models import Mensagens, Users, Amigos
+from .models import Mensagens, Users, Amigos, Imagem
 from rest_framework import serializers
 
 class GenericClassUserSerializer(serializers.ModelSerializer):
@@ -17,6 +17,11 @@ class GenericClassAmigoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Amigos
         fields = ['id', 'nome', 'idUser']
+
+class GenericClassImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Imagem
+        fields = ['id', 'nome', 'imagem']
 
 # class MensagemSerializer(serializers.ModelSerializer):
 #     class Meta:

@@ -1,4 +1,10 @@
 from django.db import models
+import time
+import os
+
+def directory_path(instance, filename):
+    arquivo, extensao = os.path.splitext(filename)
+    return "{0}{1}".format(round(time.time()), extensao)
 
 class Mensagens(models.Model):
     DtoFrom = models.CharField(max_length=50)
@@ -23,6 +29,13 @@ class Users(models.Model):
 class Amigos(models.Model):
     nome = models.CharField(max_length=50)
     idUser = models.IntegerField()
+
+    def __str__ (self):
+        return self.nome
+
+class Imagem(models.Model):
+    nome = models.CharField(max_length=255)
+    imagem = models.FileField(upload_to=directory_path)
 
     def __str__ (self):
         return self.nome
