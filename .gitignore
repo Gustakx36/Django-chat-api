@@ -1,2 +1,5 @@
 /requests/migrations
 /ApiDjango/settings.py
+/requests/__pycache__
+/ApiDjango/__pycache__
+db.sqlite3

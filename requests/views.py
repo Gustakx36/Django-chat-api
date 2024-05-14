@@ -62,11 +62,15 @@ def uploadImage(request):
     if request.method == 'POST':
         files = request.FILES
         filesLength = len(list(request.FILES.dict()))
+        link = []
         for i in range(filesLength):
+            timeAtual = round(time.time())
             img = Image.open(files.get(str(i + 1)))
-            path = os.path.join(settings.BASE_DIR, f'media/{round(time.time())}_{i + 1}.jpg')
+            imgName = f'{timeAtual}_{i + 1}.{img.format.lower()}'
+            path = os.path.join(settings.BASE_DIR, f'media/{imgName}')
             img = img.save(path)
-        return JsonResponse({'teste' : 'teste'})
+            link.append(f'http://gustakx.pythonanywhere.com/media/{imgName}')
+        return JsonResponse({'status' : True, 'msg' : link})
 
 # class MensagemViewSet(viewsets.ModelViewSet):
 #     queryset = Mensagens.objects.all()
