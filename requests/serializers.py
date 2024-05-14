@@ -21,7 +21,7 @@ class GenericClassAmigoSerializer(serializers.ModelSerializer):
 class GenericClassImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Imagem
-        fields = ['id', 'nome', 'imagem']
+        fields = ['id', 'nome', 'video', 'imagem']
 
 # class MensagemSerializer(serializers.ModelSerializer):
 #     class Meta:
